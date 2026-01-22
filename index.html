@@ -15,11 +15,8 @@
     <section class="hero">
         <h1>Descubra os melhores sabores de São Paulo.</h1>
         <div class="search-container">
-            <input type="text" placeholder="Buscar por bairro ou tipo de comida (Ex: Mooca, Pizza)...">
-            <button>Buscar</button>
-        </div>
-        <div class="tags">
-            <span>📍 Pinheiros</span> <span>📍 Itaim Bibi</span> <span>📍 Vila Madalena</span> <span>📍 Mooca</span>
+            <input type="text" id="inputBusca" placeholder="Buscar por bairro ou comida (Ex: Mooca, Pizza)...">
+            <button id="btnBuscar">Buscar</button>
         </div>
     </section>
 
@@ -28,43 +25,31 @@
         <div class="grid">
             <div class="card">
                 <div class="heart-icon">❤</div>
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=60" alt="Pizza SP">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=60" alt="Pizza">
                 <div class="card-content">
                     <h3 class="card-title">Cantina da Nonna</h3>
                     <p class="card-meta">📍 Mooca • R$ • ⭐ 4.9</p>
-                    <button class="btn-whatsapp">Pedir pelo WhatsApp</button>
+                    <a href="https://wa.me/5511999999999" class="btn-whatsapp-link" target="_blank">Pedir pelo WhatsApp</a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="heart-icon">❤</div>
-                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=60" alt="Burger SP">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=60" alt="Burger">
                 <div class="card-content">
                     <h3 class="card-title">Sampa Burger House</h3>
                     <p class="card-meta">📍 Pinheiros • R$$ • ⭐ 4.7</p>
-                    <button class="btn-whatsapp">Pedir pelo WhatsApp</button>
+                    <a href="https://wa.me/5511888888888" class="btn-whatsapp-link" target="_blank">Pedir pelo WhatsApp</a>
                 </div>
             </div>
         </div>
     </main>
+
     <script>
-    const botaoBuscar = document.querySelector('.search-container button');
-    const inputBusca = document.querySelector('.search-container input');
-    const cards = document.querySelectorAll('.card');
+        document.getElementById('btnBuscar').addEventListener('click', function() {
+            const termo = document.getElementById('inputBusca').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card');
 
-    botaoBuscar.addEventListener('click', () => {
-        const termo = inputBusca.value.toLowerCase();
-        
-        cards.forEach(card => {
-            const textoCard = card.innerText.toLowerCase();
-            if (textoCard.includes(termo)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
-</script>
-</body>
-
-</html>
+            cards.forEach(card => {
+                const texto = card.textContent.toLowerCase();
+                if (texto.includes(
