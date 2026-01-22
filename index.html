@@ -22,7 +22,7 @@
 
     <main class="container">
         <h2>Destaques da Semana</h2>
-        <div class="grid">
+        <div id="listaRestaurantes" class="grid">
             <div class="card">
                 <div class="heart-icon">❤</div>
                 <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=60" alt="Pizza">
@@ -46,10 +46,29 @@
     </main>
 
     <script>
-        document.getElementById('btnBuscar').addEventListener('click', function() {
-            const termo = document.getElementById('inputBusca').value.toLowerCase().trim();
+        const btn = document.getElementById('btnBuscar');
+        const input = document.getElementById('inputBusca');
+
+        btn.addEventListener('click', function() {
+            const termo = input.value.toLowerCase().trim();
             const cards = document.querySelectorAll('.card');
 
             cards.forEach(card => {
-                const texto = card.textContent.toLowerCase();
-                if (texto.includes(
+                const texto = card.innerText.toLowerCase();
+                if (texto.includes(termo)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+
+        // Permite apertar "Enter" para buscar também
+        input.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                btn.click();
+            }
+        });
+    </script>
+</body>
+</html>
