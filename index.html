@@ -4,84 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sampa Sabores - O Melhor de SP</title>
+    
     <link rel="stylesheet" href="style.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
     <header>
         <div class="logo">
             <i class="fas fa-utensils"></i> Sampa Sabores
         </div>
         <nav>
-            <a href="#" class="nav-link">Sugerir Restaurante</a>
-            <a href="https://wa.me/5511999999999?text=Quero+cadastrar+meu+restaurante" class="btn-cadastrar-topo">Cadastrar Meu Restaurante</a>
+            <a href="https://wa.me/5511999999999?text=Quero+anunciar+meu+restaurante" class="btn-cadastrar-topo">
+                Anunciar Restaurante
+            </a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>Descubra os melhores sabores de São Paulo.</h1>
+        
         <div class="search-box">
             <div class="search-input-wrapper">
                 <i class="fas fa-search"></i>
-                <input type="text" id="inputBusca" placeholder="Pesquisar prato ou restaurante...">
+                <input type="text" id="inputBusca" placeholder="Pesquisar prato ou restaurante (Ex: Mooca, Pizza)...">
                 <button id="btnBuscar">Buscar</button>
             </div>
         </div>
+
         <div class="filter-bar">
             <span class="filter-item active"><i class="fas fa-map-marker-alt"></i> Bairro</span>
             <span class="filter-item"><i class="fas fa-store"></i> Restaurantes</span>
             <span class="filter-item"><i class="fas fa-money-bill-wave"></i> Preço</span>
-            <span class="filter-item"><i class="fas fa-check-circle"></i> Aberto Agora</span>
+            <span class="filter-item"><i class="fas fa-star"></i> Mais Avaliados</span>
         </div>
     </section>
 
     <main class="container">
         <h2>Restaurantes em Destaque</h2>
-        <div class="grid" id="listaRestaurantes">
-            <div class="card">
-                <div class="heart-tag">❤</div>
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=60" alt="Pizza">
-                <div class="card-info">
-                    <h3>Cantina da Nonna</h3>
-                    <p class="meta">📍 Mooca • R$ • ⭐ 4.9 (120)</p>
-                    <a href="https://wa.me/5511999999999" class="btn-wpp" target="_blank">
-                        WhatsApp <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
+        
+        <div id="listaRestaurantes" class="grid">
             </div>
-
-            <div class="card">
-                <div class="heart-tag">❤</div>
-                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=60" alt="Burger">
-                <div class="card-info">
-                    <h3>Sampa Burger House</h3>
-                    <p class="meta">📍 Pinheiros • R$$ • ⭐ 4.7 (85)</p>
-                    <a href="https://wa.me/5511888888888" class="btn-wpp" target="_blank">
-                        WhatsApp <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
     </main>
 
-    <script>
-        // Lógica de Busca Funcional
-        document.getElementById('btnBuscar').addEventListener('click', function() {
-            const termo = document.getElementById('inputBusca').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.card');
+    <footer>
+        <p>&copy; 2026 Sampa Sabores - Todos os direitos reservados.</p>
+    </footer>
 
-            cards.forEach(card => {
-                const texto = card.innerText.toLowerCase();
-                card.style.display = texto.includes(termo) ? "block" : "none";
-            });
-        });
-
-        // Enter também busca
-        document.getElementById('inputBusca').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') document.getElementById('btnBuscar').click();
-        });
-    </script>
     <script src="js/app.js"></script>
+
 </body>
 </html>
-
