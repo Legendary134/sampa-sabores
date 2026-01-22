@@ -47,5 +47,24 @@
             </div>
         </div>
     </main>
+    <script>
+    const botaoBuscar = document.querySelector('.search-container button');
+    const inputBusca = document.querySelector('.search-container input');
+    const cards = document.querySelectorAll('.card');
+
+    botaoBuscar.addEventListener('click', () => {
+        const termo = inputBusca.value.toLowerCase();
+        
+        cards.forEach(card => {
+            const textoCard = card.innerText.toLowerCase();
+            if (textoCard.includes(termo)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+</script>
 </body>
+
 </html>
